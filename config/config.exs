@@ -12,6 +12,7 @@ config :app_web,
 
 # Configures the endpoint
 config :app_web, AppWebWeb.Endpoint,
+  live_view: [signing_salt: "sM/h9HbXVlCWtQ2B5f88DYjDtfO4630C" ],
   url: [host: "localhost"],
   secret_key_base: "72mxxwCGvqMJcrv2wLL+7vVFPCYfG6qONIVgvrvJLK1aidkL9JR2vheCjoPOIBip",
   render_errors: [view: AppWebWeb.ErrorView, accepts: ~w(html json)],
