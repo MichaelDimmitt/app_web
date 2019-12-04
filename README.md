@@ -39,6 +39,19 @@ liveSocket.connect()
 ## assets/package.json
     "phoenix_html": "file:../deps/phoenix_html",
     "phoenix_live_view": "file:../deps/phoenix_live_view"
+
+## this command step may need to be added in every html eex related to the live view.
+## step 5 
+## You should define the CSRF meta tag inside the in <head> in your layout:
+## <%= csrf_meta_tag() %>
+## lib/app_web_web/templates/layout/app.html.eex
+<head>
+<%= csrf_meta_tag() %>
+</head>
+## step 6 - related to (step 5)
+## Then in your app.js: 
+  let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+  let liveSocket = new LiveSocket("/live", {params: {_csrf_token: csrfToken}});
 ```
 Hookup a router based live view using 'live'.
 1) lib/app_web_web/router.ex:  
