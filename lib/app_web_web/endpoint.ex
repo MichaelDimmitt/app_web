@@ -2,6 +2,7 @@ defmodule AppWebWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :app_web
 
   socket "/live", Phoenix.LiveView.Socket
+  live_view: [signing_salt: "sM/h9HbXVlCWtQ2B5f88DYjDtfO4630C" ]
 
   socket "/socket", AppWebWeb.UserSocket,
     websocket: true,

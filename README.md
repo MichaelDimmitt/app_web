@@ -11,4 +11,11 @@ vi lib/app_web_web/live/thermostat_live.ex
 ## step 2
 ## add socket "/live", Phoenix.LiveView.Socket to ...
 vi lib/app_web_web/endpoint.ex
+
+
+## step 3
+## generate a live view signing salt, different from phoenix signing salt.
+mix phx.gen.secret 32
+## add live_view: [signing_salt: ...] to ...
+vi lib/app_web_web/endpoint.ex
 ```
