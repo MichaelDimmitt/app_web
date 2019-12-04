@@ -16,11 +16,24 @@ https://github.com/chrismccord/phoenix_live_view_example/
       {:phoenix_live_view, github: "phoenixframework/phoenix_live_view"}
     ]
 
-## step 1
-## add socket "/live", Phoenix.LiveView.Socket to ...
-vi lib/app_web_web/endpoint.ex
-
 ## step 2
+vi lib/app_web_web/endpoint.ex
++  @session_options [
++    store: :cookie,
++    key: "_app_web_key",
++    signing_salt: "kwdfu/1u"
++  ]
++  socket "/live", Phoenix.LiveView.Socket,
++    websocket: [connect_info: [session: @session_options]]
+
+-  plug Plug.Session,
+-    store: :cookie,
+-    key: "_app_web_key",
+-    signing_salt: "kwdfu/1u"
+-
++  plug Plug.Session, @session_options
+
+## step 3
 ## generate a live view signing salt, different from phoenix signing salt.
 mix phx.gen.secret 32
 ## add live_view: [signing_salt: ...] to ... config/config.exs
