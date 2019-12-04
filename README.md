@@ -66,6 +66,7 @@ liveSocket.connect()
   let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content");
   let liveSocket = new LiveSocket("/live", {params: {_csrf_token: csrfToken}});
 ```
+```bash
 Hookup a router based live view using 'live'.
 1) lib/app_web_web/router.ex:  
      import Phoenix.LiveView.Router
@@ -76,3 +77,4 @@ Hookup a router based live view using 'live'.
 
 Hookup an inline template live view using live_render.
 Hookup a controller live view using live_render
+```
