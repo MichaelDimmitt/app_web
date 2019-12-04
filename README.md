@@ -14,7 +14,6 @@ https://github.com/chrismccord/phoenix_live_view_example/
 ## add socket "/live", Phoenix.LiveView.Socket to ...
 vi lib/app_web_web/endpoint.ex
 
-
 ## step 2
 ## generate a live view signing salt, different from phoenix signing salt.
 mix phx.gen.secret 32
@@ -29,6 +28,11 @@ import LiveSocket from "phoenix_live_view"
 
 let liveSocket = new LiveSocket("/live", Socket)
 liveSocket.connect()
+
+## step 4
+## assets/package.json
+    "phoenix_html": "file:../deps/phoenix_html",
+    "phoenix_live_view": "file:../deps/phoenix_live_view"
 ```
 Hookup a router based live view using 'live'.
 1) lib/app_web_web/router.ex:  
