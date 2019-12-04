@@ -2,6 +2,9 @@ Following steps for live view from phoenix docs, trying to build a generator tas
 
 Website: hexdocs.pm/phoenix_live_view/Phoenix.LiveView.html
 
+If you get stuck check chris mccords demo implementation:
+https://github.com/chrismccord/phoenix_live_view_example/
+
 ## Commands that need to be implemented one time.
 ```bash
 
