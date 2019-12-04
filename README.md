@@ -9,6 +9,12 @@ https://github.com/chrismccord/phoenix_live_view_example/
 ```bash
 
 ## step 0
+## mix.exs
+  defp deps do
+    [
+      ...,
+      {:phoenix_live_view, github: "phoenixframework/phoenix_live_view"}
+    ]
 
 ## step 1
 ## add socket "/live", Phoenix.LiveView.Socket to ...
