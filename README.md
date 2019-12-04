@@ -18,4 +18,20 @@ vi lib/app_web_web/endpoint.ex
 mix phx.gen.secret 32
 ## add live_view: [signing_salt: ...] to ...
 vi lib/app_web_web/endpoint.ex
+
+## step 4
+## assets/js/app.js 
+import {Socket} from "phoenix"
+import LiveSocket from "phoenix_live_view"
+
+let liveSocket = new LiveSocket("/live", Socket)
+liveSocket.connect()
+
+## step 5
+use connected to ... maintain state when socket is active.
+
+## step 6
+lesson: using ~L""" """ or .leex templates for live view they are designed to minimize the amount of data sent over the wire by splitting static from dynamic parts and also tracking changes.
+
 ```
+
