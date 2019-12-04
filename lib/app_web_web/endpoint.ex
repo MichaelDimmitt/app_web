@@ -1,8 +1,12 @@
 defmodule AppWebWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :app_web
-
-  socket "/live", Phoenix.LiveView.Socket
-  live_view: [signing_salt: "sM/h9HbXVlCWtQ2B5f88DYjDtfO4630C" ]
+  @session_options [
+    store: :cookie,
+    key: "_app_web_key",
+    signing_salt: "kwdfu/1u"
+  ]
+  socket "/live", Phoenix.LiveView.Socket,
+    websocket: [connect_info: [session: @session_options]]
 
   socket "/socket", AppWebWeb.UserSocket,
     websocket: true,
@@ -40,10 +44,6 @@ defmodule AppWebWeb.Endpoint do
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
-  plug Plug.Session,
-    store: :cookie,
-    key: "_app_web_key",
-    signing_salt: "kwdfu/1u"
-
+  plug Plug.Session, @session_options
   plug AppWebWeb.Router
 end
